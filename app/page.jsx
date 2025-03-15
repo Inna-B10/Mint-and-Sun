@@ -17,12 +17,12 @@ export default async function Home() {
 		<>
 			<main>
 				<Section>
-					<Cover title='Elena <br /> Litvinova'></Cover>
+					<Cover title='Mint & Sun'></Cover>
 					<SocialNetworks />
 					<Subscribe />
 				</Section>
 				<Section>
-					<Title>New Posts</Title>
+					<Title>Last Posts</Title>
 					<PostGrid>
 						<PostsClient initialPosts={initialPosts} total={total} />
 					</PostGrid>
