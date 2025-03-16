@@ -17,7 +17,7 @@ export default function PostsClient({ initialPosts, total }) {
 
 			setPosts(prev => [...prev, ...data.posts])
 		} catch (error) {
-			console.error('Ошибка загрузки постов:', error)
+			console.error('Error loading posts:', error)
 		} finally {
 			setLoading(false)
 		}
@@ -32,6 +32,7 @@ export default function PostsClient({ initialPosts, total }) {
 					description={post.description}
 					slug={post.slug}
 					title={post.title}
+					date={post.publishedDate}
 				/>
 			))}
 			{posts.length < total && (

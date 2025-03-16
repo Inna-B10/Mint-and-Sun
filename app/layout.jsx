@@ -1,14 +1,21 @@
-import './styles/global.scss'
-import './styles/reset.scss'
+import './styles/0_reset.scss'
+import { marcellus, raleway } from './styles/fonts'
+import './styles/globals.scss'
 
 export const metadata = {
-	title: 'Example blog',
-	description: 'Using Next,js 15 and Sanity',
+	title: 'Mint & Sun',
+	description:
+		'Et sted for deg som vil leve lysere, mer bevisst og aktivt. Selvutvikling, reiser, helse - alt som gir livet mening og energi.',
 }
 
 export default function RootLayout({ children }) {
 	return (
-		<html lang='en'>
+		<html
+			lang='no'
+			className={`
+    ${raleway.variable}
+    ${marcellus.variable}
+    `}>
 			<body>{children}</body>
 		</html>
 	)

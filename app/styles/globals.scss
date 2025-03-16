@@ -1,0 +1,43 @@
+:root {
+    --font-default: 'Raleway', serif;
+    --font-title: 'Marcellus', serif;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body,
+button {
+    font-family: var(--font-default);
+    letter-spacing: 0.7px;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-title);
+    letter-spacing: 1px;
+}
+
+button {
+    border: none;
+    box-shadow: none;
+}
+
+@media only screen and (max-width: 1150px) {
+
+    html,
+    body,
+    button {
+        font-size: 16px;
+    }
+}

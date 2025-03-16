@@ -6,7 +6,6 @@ import {
 	Section,
 	SocialNetworks,
 	Subscribe,
-	Title,
 } from './components'
 import { LOAD_MORE_STEP } from './constants/constants'
 
@@ -22,7 +21,7 @@ export default async function Home() {
 					<Subscribe />
 				</Section>
 				<Section>
-					<Title>Last Posts</Title>
+					{/* <Title>Last Posts</Title> */}
 					<PostGrid>
 						<PostsClient initialPosts={initialPosts} total={total} />
 					</PostGrid>
