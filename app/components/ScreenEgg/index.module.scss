@@ -1,30 +1,40 @@
 .screenEgg {
     position: fixed;
-    background: #FFDE7D;
+    background: #FED963;
     display: inline-block;
-    padding: 1rem;
+    padding: 2rem;
     z-index: 99;
     cursor: pointer;
-    border: 1px solid #ffffff;
-    
+    transition: transform 0.5s ease-out;
+
     &Right {
-        padding-left: 2rem;
-        transform: translate(calc(100% - 1.9rem), 0);
         top: 10%;
         right: 0;
-        transition: transform 0.5s ease-out;
     }
 
     &Left {
-        padding-right: 1.9rem;
-        transform: translate(calc(-100% + 1.9rem), 0);
         bottom: 10%;
         left: 0;
-        transition: transform 0.3s ease-out;
     }
 
-    &:hover {
+    &.preMount {
         transform: translate(0, 0);
+    }
+
+    &.mounted.screenEggLeft {
+        transform: translate(calc(-100% + 1.9rem), 0);
+
+        &:hover {
+            transform: translate(0, 0);
+        }
+    }
+
+    &.mounted.screenEggRight {
+        transform: translate(calc(100% - 1.9rem), 0);
+
+        &:hover {
+            transform: translate(0, 0);
+        }
     }
 }
 
@@ -40,6 +50,10 @@
             transform: none
         }
 
+        &.mounted {
+            transform: none;
+        }
+
         ul {
             display: flex;
             gap: 1rem;
@@ -50,6 +64,4 @@
             }
         }
     }
-
-
 }
