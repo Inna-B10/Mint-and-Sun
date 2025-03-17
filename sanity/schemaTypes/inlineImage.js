@@ -2,7 +2,7 @@ import { defineType } from 'sanity'
 
 export const inlineImage = defineType({
 	type: 'object',
-	name: 'inlineImage',
+	name: 'inlineImageObject',
 	title: 'Inline Image',
 	fields: [
 		{

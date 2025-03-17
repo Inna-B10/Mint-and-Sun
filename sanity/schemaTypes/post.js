@@ -4,7 +4,6 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 import { isUniqueAcrossAllDocuments } from '../lib/isUniqueAcrossAllDocuments'
 import AltInput from './components/AltInput'
 import GenerateMetaInput from './components/GenerateMetaInput'
-import { inlineImage } from './inlineImage'
 
 export const postType = defineType({
 	name: 'posts',
@@ -20,7 +19,6 @@ export const postType = defineType({
 			title: 'Meta',
 		},
 	],
-	// icon: MarkerIcon,
 	fields: [
 		defineField({
 			name: 'title',
@@ -121,7 +119,7 @@ export const postType = defineType({
 				defineArrayMember({
 					type: 'block',
 				}),
-				defineArrayMember(inlineImage),
+				defineArrayMember({ type: 'inlineImageObject' }),
 				defineArrayMember({
 					type: 'image',
 					fields: [
@@ -156,10 +154,10 @@ export const postType = defineType({
 	preview: {
 		select: {
 			name: 'title',
-			posts: 'posts.title',
 			date: 'publishedDate',
+			icon: 'icon',
 		},
-		prepare({ name, posts, date }) {
+		prepare({ name, date, icon }) {
 			const nameFormatted = name || 'Untitled post'
 			const dateFormatted = date
 				? new Date(date).toLocaleDateString(undefined, {
@@ -172,9 +170,9 @@ export const postType = defineType({
 				: 'No date'
 
 			return {
-				title: posts ? `${nameFormatted}(${posts})` : nameFormatted,
+				title: nameFormatted,
 				subtitle: `Published on ${dateFormatted}`,
-				media: ComposeIcon,
+				media: icon || ComposeIcon,
 			}
 		},
 	},

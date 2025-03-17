@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const BodyPortableTextComponents = {
 	block: {
-		normal: ({ children }) => <p>{children}</p>,
+		normal: ({ children }) => <div>{children}</div>,
 	},
 	types: {
 		image: ({ value }) => {
