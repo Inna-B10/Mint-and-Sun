@@ -3,7 +3,9 @@
 - [ ] image float right/left list options?
 - [ ] studio preview
 - [ ] studio auth (middleware?)
-- [ ] subscribe
+- [ ] subscribe block:
+  - [x] subscribe btn
+  - [ ] close on click outside
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

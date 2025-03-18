@@ -21,16 +21,32 @@ button {
     -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+    background: #c0c0c0;
+    border-color: #c0c0c0;
+}
+
+input {
+    outline: none;
+}
+
+input:disabled {
+    background-color: #ececec;
+    border-color: #c0c0c0;
+}
+
 h1,
 h2,
 h3 {
     font-family: var(--font-title);
     letter-spacing: 1px;
-}
-
-button {
-    border: none;
-    box-shadow: none;
 }
 
 @media only screen and (max-width: 1150px) {

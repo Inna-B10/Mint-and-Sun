@@ -1,18 +1,15 @@
+// original idea from https: //codepen.io/guywald/pen/rLReyZ
+//+ GPT-chat
 .button {
   width: 13rem;
   color: #fff;
-  background: #23b997;
-  border: 2px solid #23b997;
-  border-radius: 0px;
+  font-weight: 600;
   position: relative;
-  cursor: pointer;
   transition: all 0.5s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 600;
   background-color: transparent;
-  margin-bottom: 1rem;
   text-shadow: 1px 1px 1px rgb(0 0 0 / 60%);
 }
 
@@ -20,8 +17,6 @@
   padding: 1rem 2rem;
   background: #23b997;
   border: 2px solid #23b997;
-  text-decoration: none;
-  cursor: pointer;
   display: block;
 }
 
@@ -47,7 +42,7 @@
 
 .checkmark {
   width: 1.5rem;
-  height: 1.5rem;
+  height: 1rem;
 }
 
 .checkmark1 {

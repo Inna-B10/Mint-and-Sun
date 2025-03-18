@@ -3,25 +3,33 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import styles from './SubscribeButton.module.scss'
 
-export default function SubscribeButton() {
+export default function SubscribeButton({
+	isSubscribed,
+	setIsSubscribed,
+	setButtonStatus,
+}) {
 	const [status, setStatus] = useState('idle')
 	const [progress, setProgress] = useState(0)
 
-	// Обработчик анимации
+	useEffect(() => {
+		setButtonStatus(status)
+	}, [status, setButtonStatus])
+
+	// animation handler
 	useEffect(() => {
 		let interval
 
 		if (status === 'loading') {
-			setProgress(0) // сбрасываем прогресс
+			//setProgress(0) // reset progress
 			interval = setInterval(() => {
 				setProgress(prev => {
 					if (prev >= 100) {
 						clearInterval(interval)
 						setTimeout(() => {
 							setStatus('success')
-							// setTimeout(() => {
-							// 	setStatus('idle') // сбрасываем обратно на 'idle'
-							// }, 1800)
+							setTimeout(() => {
+								setIsSubscribed(true) // to show message
+							}, 1800)
 						}, 1500)
 						return 100
 					}
@@ -37,6 +45,8 @@ export default function SubscribeButton() {
 		if (status === 'idle') {
 			setStatus('loading')
 		}
+
+		//try/catch function in the future
 	}
 
 	return (
@@ -45,8 +55,8 @@ export default function SubscribeButton() {
 				status === 'success' ? styles.successCircle : ''
 			}`}
 			onClick={handleClick}
-			disabled={status !== 'idle'}>
-			{status === 'idle' && 'Send'}
+			disabled={isSubscribed}>
+			{status === 'idle' && 'Subscribe'}
 
 			{status === 'loading' && (
 				<svg
