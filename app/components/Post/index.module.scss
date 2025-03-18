@@ -8,9 +8,10 @@
     &Date {
         text-align: right;
         margin-bottom: 0.5rem;
-        color: #14775B;
+        color: #23b997;
         font-weight: bold;
         font-family: var(--font-title);
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 30%);
     }
 
     &Description {

@@ -1,13 +1,11 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
-// import { Check } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import styles from './SubscribeButton.module.scss'
 
 export default function SubscribeButton() {
 	const [status, setStatus] = useState('idle')
 	const [progress, setProgress] = useState(0)
-	const [showInput, setShowInput] = useState(false)
 
 	// Обработчик анимации
 	useEffect(() => {
@@ -21,10 +19,10 @@ export default function SubscribeButton() {
 						clearInterval(interval)
 						setTimeout(() => {
 							setStatus('success')
-							setTimeout(() => {
-								setStatus('idle') // сбрасываем обратно на 'idle'
-							}, 1800)
-						}, 2000)
+							// setTimeout(() => {
+							// 	setStatus('idle') // сбрасываем обратно на 'idle'
+							// }, 1800)
+						}, 1500)
 						return 100
 					}
 					return prev + 4
@@ -71,7 +69,7 @@ export default function SubscribeButton() {
 						cx='30'
 						cy='30'
 						r='28'
-						stroke='#14775b'
+						stroke='#23b997'
 						strokeWidth='4'
 						fill='none'
 						strokeDasharray='176'
@@ -79,7 +77,7 @@ export default function SubscribeButton() {
 						animate={{
 							strokeDashoffset: [176, 0],
 						}}
-						transition={{ ease: 'linear', duration: 1.5 }}
+						transition={{ ease: 'linear', duration: 2 }}
 					/>
 				</svg>
 			)}
@@ -92,7 +90,6 @@ export default function SubscribeButton() {
 						animate={{ scale: 1 }}
 						exit={{ scale: 0 }}
 						transition={{ duration: 0.5 }}>
-						{/* <Check size={30} color='#fff' /> */}
 						<svg className={styles.checkmark} viewBox='0 0 40 40'>
 							<g className={styles.checkmark1}>
 								<path

@@ -19,10 +19,11 @@ export default function Subscribe({ className }) {
 			<div
 				className={cn(className, styles.subscribe)}
 				// onMouseEnter={() => setIsHovered(true)}
-				onMouseLeave={() => {
-					// 	setIsHovered(false)
-					setShowInput(false)
-				}}>
+				// onMouseLeave={() => {
+				// 	// 	setIsHovered(false)
+				// 	setShowInput(false)
+				// }}
+			>
 				{/* {isHovered && */}
 				{!showInput ? (
 					<div className={styles.subscribeContent}>

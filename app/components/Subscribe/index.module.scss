@@ -3,8 +3,6 @@
     min-width: 10rem;
     display: block;
 
-    // background: url('/buy_coffee.png') no-repeat top center;
-    // background-size: auto 5rem;
     &Content {
         display: flex;
         flex-direction: column;
@@ -14,37 +12,30 @@
 
         p {
             width: 13rem;
-            // font-size: 1rem;
             text-wrap: nowrap;
-            padding: 6px 4px 8px;
+            padding: 6px 4px 9px;
         }
     }
 
     &Button {
         width: 13rem;
         color: #fff;
-        background: #14775B;
-        border: 2px solid #14775B;
+        background: #23b997;
+        border: 2px solid #23b997;
         font-weight: 600;
-        font-size: 1rem;
         padding: 1rem 2rem;
         margin-bottom: 1rem;
         text-align: center;
         text-decoration: none;
         cursor: pointer;
-        // transition: all 0.5s;
         display: block;
-        // &:hover {
-        //     background: white;
-        //     border: 2px solid #14775B;
-        //     color: black;
-        // }
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 60%);
     }
 
     &Input {
         width: 13rem;
         padding: 7px 4px;
-        border: 2px solid #14775B;
+        border: 2px solid #23b997;
         outline: none;
     }
 }

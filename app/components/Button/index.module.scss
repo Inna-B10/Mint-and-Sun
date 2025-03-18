@@ -1,5 +1,5 @@
 .button {
-    background: #FED963;
+    background: #FFE592;
     padding: 0.5em 2em;
     font-size: 1.5rem;
     font-weight: bold;
@@ -8,8 +8,9 @@
     color: black;
 
     &:hover {
-        background: #14775B;
+        background: #23b997;
         color: #ffffff;
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 60%);
     }
 
     &:disabled {
