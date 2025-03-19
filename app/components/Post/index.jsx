@@ -28,6 +28,7 @@ export default function Post({
 				<Image
 					src={urlFor(icon).url()}
 					alt={icon.alt || ''}
+					role='category icon'
 					width={100}
 					height={100}
 					className={styles.postImage}
