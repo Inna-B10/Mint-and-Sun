@@ -31,9 +31,16 @@ const BodyPortableTextComponents = {
 				</div>
 			)
 		},
-		inlineImage: ({ value }) => {
+		inlineImageObject: ({ value }) => {
 			return (
-				<span style={{ float: 'right', maxWidth: '50%' }}>
+				<span
+					style={{
+						maxWidth: '50%',
+						float: value.float === 'right' ? 'right' : 'left',
+						marginLeft: value.float === 'right' ? '1.5rem' : '0',
+						marginRight: value.float === 'left' ? '1.5rem' : '0',
+						marginTop: '1rem',
+					}}>
 					<img
 						src={urlFor(value.image.asset).width(800).url()}
 						alt={value.alt || ''}

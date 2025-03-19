@@ -1,8 +1,8 @@
 import { defineType } from 'sanity'
 
 export const inlineImage = defineType({
-	type: 'object',
 	name: 'inlineImageObject',
+	type: 'object',
 	title: 'Inline Image',
 	fields: [
 		{
@@ -13,6 +13,25 @@ export const inlineImage = defineType({
 		{
 			name: 'alt',
 			type: 'string',
+		},
+		{
+			name: 'float',
+			type: 'string',
+			title: 'Alignment',
+			options: {
+				list: [
+					{
+						title: 'Float left',
+						value: 'left',
+					},
+					{
+						title: 'Float right',
+						value: 'right',
+					},
+				],
+				layout: 'radio',
+			},
+			initialValue: 'left',
 		},
 	],
 	options: {
