@@ -5,10 +5,10 @@ export default function GenerateMetaInput(props) {
 	// console.log(props)
 	const { onChange, renderDefault } = props
 
-	// Достаём весь документ (корень формы)
+	// get the entire document (the root of the form)
 	const doc = useFormValue([])
 
-	// Достаём контекст из props
+	// get the context from props
 	const context = props.schemaType?.options?.context || {}
 
 	const generateValue = () => {
@@ -22,14 +22,14 @@ export default function GenerateMetaInput(props) {
 
 	return (
 		<Flex gap={2} align='flex-end'>
-			{/* Поле ввода */}
+			{/* input field */}
 			<Box flex={1}>{renderDefault(props)}</Box>
 
-			{/* Кнопка генерации */}
+			{/* button Generate */}
 			<Button
 				text='Generate'
-				tone='default' // Серый цвет
-				mode='ghost' // Без заливки (как у slug)
+				tone='default' // gray
+				mode='ghost' // without fill (like slug)
 				onClick={generateValue}
 			/>
 		</Flex>

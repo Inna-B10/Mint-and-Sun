@@ -7,7 +7,6 @@ import SubscribeButton from './SubscribeButton'
 
 export default function Subscribe({ className }) {
 	const [isSubscribed, setIsSubscribed] = useState(false)
-	const [isActiveInput, setIsActiveInput] = useState(true)
 	const [buttonStatus, setButtonStatus] = useState('idle')
 
 	return (

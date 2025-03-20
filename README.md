@@ -1,6 +1,6 @@
 [TODO]
 
-- [ ] image float right/left list options?
+- [x] image float right/left list options?
 - [ ] studio preview
 - [ ] studio auth (middleware?)
 - [ ] subscribe block:

@@ -20,7 +20,6 @@ export default function SubscribeButton({
 		let interval
 
 		if (status === 'loading') {
-			//setProgress(0) // reset progress
 			interval = setInterval(() => {
 				setProgress(prev => {
 					if (prev >= 100) {
@@ -46,7 +45,7 @@ export default function SubscribeButton({
 			setStatus('loading')
 		}
 
-		//try/catch function in the future
+		//[TODO] try/catch function here in the future
 	}
 
 	return (

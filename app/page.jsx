@@ -15,8 +15,11 @@ export default async function Home() {
 	return (
 		<>
 			<main>
+				<a href='http://localhost:3000/studio' target='_blank'>
+					Studio
+				</a>
 				<Section>
-					<Cover title='Mint & Sun'></Cover>
+					<Cover title='Mint & Sun' />
 					<SocialNetworks />
 					<Subscribe />
 				</Section>
