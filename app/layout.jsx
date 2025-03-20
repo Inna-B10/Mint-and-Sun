@@ -1,3 +1,7 @@
+import { SanityLive } from '@/sanity/lib/live'
+import { VisualEditing } from 'next-sanity'
+import { draftMode } from 'next/headers'
+import { DisableDraftMode } from './components/DisableDraftMode'
 import './styles/0_reset.scss'
 import { marcellus, raleway } from './styles/fonts'
 import './styles/globals.scss'
@@ -8,7 +12,7 @@ export const metadata = {
 		'Et sted for deg som vil leve lysere, mer bevisst og aktivt. Selvutvikling, reiser, helse - alt som gir livet mening og energi.',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
 	return (
 		<html
 			lang='no'
@@ -16,7 +20,16 @@ export default function RootLayout({ children }) {
     ${raleway.variable}
     ${marcellus.variable}
     `}>
-			<body>{children}</body>
+			<body>
+				{children}
+				<SanityLive />
+				{(await draftMode()).isEnabled && (
+					<>
+						<DisableDraftMode />
+						<VisualEditing />
+					</>
+				)}
+			</body>
 		</html>
 	)
 }

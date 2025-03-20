@@ -1,7 +1,7 @@
 [TODO]
 
 - [x] image float right/left list options?
-- [ ] studio preview
+- [ ] studio preview (https://www.sanity.io/guides/nextjs-app-router-live-preview)
 - [ ] studio auth (middleware?)
 - [ ] subscribe block:
   - [x] subscribe btn
