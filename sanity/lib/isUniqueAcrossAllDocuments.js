@@ -1,7 +1,3 @@
-// /lib/isUniqueAcrossAllDocuments.js
-
-// Note: this assumes that every document that has a slug field
-// have it on the `slug` field at the root
 export async function isUniqueAcrossAllDocuments(slug, context) {
 	const { document, getClient } = context
 	const client = getClient({ apiVersion: '2022-12-07' })

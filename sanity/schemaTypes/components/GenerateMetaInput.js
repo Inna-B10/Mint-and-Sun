@@ -2,7 +2,6 @@ import { Box, Button, Flex } from '@sanity/ui'
 import { PatchEvent, set, unset, useFormValue } from 'sanity'
 
 export default function GenerateMetaInput(props) {
-	// console.log(props)
 	const { onChange, renderDefault } = props
 
 	// get the entire document (the root of the form)

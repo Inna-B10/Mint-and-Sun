@@ -9,7 +9,7 @@ import {
 	Subscribe,
 } from '..'
 
-export function HomeWrapper({ initialPosts, total }) {
+export default function HomeWrapper({ initialPosts, total }) {
 	const [searchResults, setSearchResults] = useState(null)
 
 	return (

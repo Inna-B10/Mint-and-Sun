@@ -1,6 +1,7 @@
 'use client'
 import { fetchSearchResult } from '@/app/api/fetchSearchResult'
 import { useState } from 'react'
+import styles from './index.module.scss'
 
 export default function Search({ onSearch }) {
 	const [query, setQuery] = useState('')
@@ -15,18 +16,13 @@ export default function Search({ onSearch }) {
 		try {
 			const { posts: resultPosts } = await fetchSearchResult(query)
 			onSearch(resultPosts)
-
-			// 			const res = await fetch(`/api/posts/search?query=${query}`)
-			// 			const data = await res.json()
-			//
-			// 			onSearch(data.posts)
 		} catch (error) {
 			console.error('Search error:', error)
 		}
 	}
 
 	return (
-		<form onSubmit={handleSearch} style={{ display: 'flex', gap: '8px' }}>
+		<form onSubmit={handleSearch} className={styles.form}>
 			<input
 				type='text'
 				placeholder='Search'

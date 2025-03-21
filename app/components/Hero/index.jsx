@@ -1,17 +1,18 @@
 'use client'
 import cn from 'clsx'
-import Search from '../Search/Search'
+
+import { Search } from '..'
 import styles from './index.module.scss'
 
 export default function Hero({ className, title, onSearch }) {
 	return (
 		<div className={cn(className, styles.cover)}>
+			<Search onSearch={onSearch} />
 			<h1
 				className={styles.coverTitle}
 				//[TODO] check it!
 				dangerouslySetInnerHTML={{ __html: title }}
 			/>
-			<Search onSearch={onSearch} />
 		</div>
 	)
 }

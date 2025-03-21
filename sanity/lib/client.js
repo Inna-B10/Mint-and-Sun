@@ -7,6 +7,5 @@ export const client = createClient({
 	dataset,
 	apiVersion,
 	token,
-	// ignoreBrowserTokenWarning:true,
-	useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+	useCdn: true,
 })

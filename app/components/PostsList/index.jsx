@@ -13,7 +13,6 @@ export default function PostsList({
 	const [loading, setLoading] = useState(false)
 
 	const currentPosts = isSearching ? searchResults : loadedPosts
-	// console.log(initialPosts)
 
 	const handleLoadMore = async () => {
 		setLoading(true)

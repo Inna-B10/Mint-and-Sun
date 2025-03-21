@@ -1,5 +1,6 @@
 import { fetchAllPosts } from './api/fetchAllPosts'
-import { HomeWrapper } from './components/HomeWrapper/HomeWrapper'
+import { HomeWrapper } from './components'
+
 import { LOAD_MORE_STEP } from './constants/constants'
 
 export default async function Home() {
@@ -8,6 +9,7 @@ export default async function Home() {
 	return (
 		<>
 			<main>
+				{/*//[TODO] change to production host */}
 				<a href='http://localhost:3000/studio' target='_blank'>
 					Studio
 				</a>
