@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Title } from '..'
 import styles from './index.module.scss'
 
-export default function Post({
+export default function PostsListItem({
 	className,
 	icon,
 	title,

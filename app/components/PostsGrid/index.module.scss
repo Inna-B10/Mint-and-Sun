@@ -1,4 +1,4 @@
-.postGrid {
+.PostsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem 2rem;
@@ -6,7 +6,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .postGrid {
+    .PostsGrid {
         grid-template-columns: 1fr;
     }
 }

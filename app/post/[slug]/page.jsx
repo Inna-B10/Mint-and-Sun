@@ -2,7 +2,7 @@ import { client } from '@/sanity/lib/client'
 import styles from './styles.module.scss'
 
 import { fetchPostBySlug } from '@/app/api/fetchPostBySlug'
-import { Article, Content, Title } from '@/app/components'
+import { Article, ArticleBodyContent, Title } from '@/app/components'
 import { revalidate } from '@/app/constants/constants'
 import { format } from 'date-fns'
 import { notFound } from 'next/navigation'
@@ -50,7 +50,7 @@ export default async function PostPage({ params }) {
 		<Article backUrl='/' className={styles.post}>
 			<Title className={styles.postTitle}>{post.title}</Title>
 			<p className={styles.postDate}>{date}</p>
-			<Content body={post.body} />
+			<ArticleBodyContent body={post.body} />
 		</Article>
 	)
 }

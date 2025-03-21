@@ -1,12 +1,12 @@
 import cn from 'clsx'
 import { PortableText } from 'next-sanity'
-import { BodyPortableTextComponents } from '..'
+import { PortableTextComponents } from '..'
 import styles from './index.module.scss'
 
-export default function Content({ className, body }) {
+export default function ArticleBodyContent({ className, body }) {
 	return (
 		<div className={cn(className, styles.content)}>
-			<PortableText value={body} components={BodyPortableTextComponents} />
+			<PortableText value={body} components={PortableTextComponents} />
 		</div>
 	)
 }

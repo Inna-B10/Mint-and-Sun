@@ -1,7 +1,7 @@
 import { urlFor } from '@/sanity/lib/image'
 import Image from 'next/image'
 
-const BodyPortableTextComponents = {
+const PortableTextComponents = {
 	block: {
 		normal: ({ children }) => <div>{children}</div>,
 	},
@@ -75,4 +75,4 @@ const BodyPortableTextComponents = {
 	},
 }
 
-export default BodyPortableTextComponents
+export default PortableTextComponents

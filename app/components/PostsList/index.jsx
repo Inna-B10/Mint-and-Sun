@@ -1,9 +1,9 @@
 'use client'
 import { LOAD_MORE_STEP } from '@/app/constants/constants'
 import { useState } from 'react'
-import { Button, Post } from '..'
+import { Button, PostsListItem } from '..'
 
-export default function PostsClient({ initialPosts, total }) {
+export default function PostsList({ initialPosts, total }) {
 	const [posts, setPosts] = useState(initialPosts)
 	const [loading, setLoading] = useState(false)
 
@@ -26,7 +26,7 @@ export default function PostsClient({ initialPosts, total }) {
 	return (
 		<>
 			{posts.map(post => (
-				<Post
+				<PostsListItem
 					key={post.slug.current}
 					icon={post.icon}
 					description={post.description}

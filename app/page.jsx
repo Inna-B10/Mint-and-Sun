@@ -1,8 +1,8 @@
 import { fetchAllPosts } from './api/fetchAllPosts'
 import {
-	Cover,
-	PostGrid,
-	PostsClient,
+	Hero,
+	PostsGrid,
+	PostsList,
 	Section,
 	SocialNetworks,
 	Subscribe,
@@ -19,15 +19,15 @@ export default async function Home() {
 					Studio
 				</a>
 				<Section>
-					<Cover title='Mint & Sun' />
+					<Hero title='Mint & Sun' />
 					<SocialNetworks />
 					<Subscribe />
 				</Section>
 				<Section>
 					{/* <Title>Last Posts</Title> */}
-					<PostGrid>
-						<PostsClient initialPosts={initialPosts} total={total} />
-					</PostGrid>
+					<PostsGrid>
+						<PostsList initialPosts={initialPosts} total={total} />
+					</PostsGrid>
 				</Section>
 			</main>
 			<footer></footer>
