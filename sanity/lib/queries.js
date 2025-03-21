@@ -4,3 +4,7 @@ export const POSTS_QUERY = `{
   }`
 
 export const POST_QUERY = `*[_type=="posts" && slug.current ==$slug][0]{slug, meta_title, icon,description,publishedDate,body,title}`
+
+export const POSTS_SEARCH = `{
+  "posts": *[_type=='posts' && (title match $query + "*" || body match $query + "*" || description match $query + "*")] | order(publishedDate desc) {_id, publishedDate,title,slug{current},description,icon}
+  }`
