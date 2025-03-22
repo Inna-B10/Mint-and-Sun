@@ -28,8 +28,8 @@ export default function SubscribeButton({
 							setStatus('success')
 							setTimeout(() => {
 								setIsSubscribed(true) // to show message
-							}, 1800)
-						}, 1500)
+							}, 1400)
+						}, 1200)
 						return 100
 					}
 					return prev + 4

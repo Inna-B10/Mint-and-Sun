@@ -1,3 +1,4 @@
+export { default as AdminLinks } from './AdminLinks'
 export { default as Article } from './Article'
 export { default as ArticleBodyContent } from './ArticleBodyContent'
 export { default as Button } from './Button'

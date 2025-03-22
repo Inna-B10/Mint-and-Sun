@@ -1,9 +1,15 @@
 import {
-	AiFillGithub,
-	AiFillLinkedin,
-	AiFillTwitterSquare,
-	AiFillYoutube,
-} from 'react-icons/ai'
+	EnvelopeIcon,
+	GithubIcon,
+	LinkedinIcon,
+	TwitterIcon,
+} from '@sanity/icons'
+// import {
+// 	AiFillGithub,
+// 	AiFillLinkedin,
+// 	AiFillTwitterSquare,
+// 	AiFillYoutube,
+// } from 'react-icons/ai'
 
 // export const revalidate = 3600
 export const revalidate = 60
@@ -13,22 +19,26 @@ export const LOAD_MORE_STEP = 4
 export const socialNetworks = [
 	{
 		id: 1,
-		href: 'https://github.com',
-		icon: AiFillGithub,
+		href: 'mailto:name@email.com',
+		icon: EnvelopeIcon,
+		title: 'Kontakt me',
 	},
 	{
 		id: 2,
-		href: 'https://youtube.com',
-		icon: AiFillYoutube,
+		href: 'https://github.com',
+		icon: GithubIcon,
+		title: 'Github',
 	},
 	{
 		id: 3,
 		href: 'https://twitter.com',
-		icon: AiFillTwitterSquare,
+		icon: TwitterIcon,
+		title: 'Twitter',
 	},
 	{
 		id: 4,
 		href: 'https://www.linkedin.com',
-		icon: AiFillLinkedin,
+		icon: LinkedinIcon,
+		title: 'LinkedIn',
 	},
 ]

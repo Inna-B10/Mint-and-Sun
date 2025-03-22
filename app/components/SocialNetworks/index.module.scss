@@ -1,17 +1,16 @@
 .list {
-    &Item {
-        margin-bottom: 0.5em;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
     &Link {
-        transition: opacity 0.3s;
+        & svg {
+            width: 42px;
+            height: 42px;
+            color: #21AD85;
+            transition: all 0.3s linear;
 
-        &:hover {
-            opacity: 0.6;
+            &:hover {
+                transform: scale(1.1);
+                color: #177a5e;
+                transition: all 0.3s linear;
+            }
         }
     }
 }

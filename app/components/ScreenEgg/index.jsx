@@ -1,28 +1,28 @@
-'use client'
 import cn from 'clsx'
-import { useEffect, useState } from 'react'
 import styles from './index.module.scss'
 
-export default function ScreenEgg({ className, children, type }) {
-	const [mounted, setMounted] = useState(false)
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setMounted(true)
-		}, 10)
-
-		return () => clearTimeout(timer)
-	}, [])
-
+export default function ScreenEgg({ className, children, type, icon: Icon }) {
 	return (
-		<div
-			className={cn(
-				className,
-				styles.screenEgg,
-				type === 'right' ? styles.screenEggRight : styles.screenEggLeft,
-				mounted ? styles.mounted : styles.preMount
-			)}>
-			{children}
-		</div>
+		<>
+			<div
+				className={cn(className, styles.screenEgg, {
+					[styles.screenEggSocial]: type === 'social',
+					[styles.screenEggSearch]: type === 'search',
+					[styles.screenEggSubscribe]: type === 'subscribe',
+					[styles.screenEggStudio]: type === 'studio',
+				})}>
+				{Icon && (
+					<Icon
+						className={cn(styles.screenEggIcon, {
+							[styles.screenEggIconSocial]: type === 'social',
+							[styles.screenEggIconSearch]: type === 'search',
+							[styles.screenEggIconSubscribe]: type === 'subscribe',
+							[styles.screenEggIconStudio]: type === 'studio',
+						})}
+					/>
+				)}
+				{children}
+			</div>
+		</>
 	)
 }
