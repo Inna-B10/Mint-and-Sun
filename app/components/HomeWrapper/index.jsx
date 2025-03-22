@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import {
+	AdminLinks,
 	Hero,
 	PostsGrid,
 	PostsList,
@@ -16,6 +17,7 @@ export default function HomeWrapper({ initialPosts, total }) {
 		<>
 			<Section>
 				<Hero title='Mint & Sun' onSearch={setSearchResults} />
+				<AdminLinks />
 				<SocialNetworks />
 				<Subscribe />
 			</Section>

@@ -1,6 +1,8 @@
 'use client'
 import { fetchSearchResult } from '@/app/api/fetchSearchResult'
+import { SearchIcon } from '@sanity/icons'
 import { useState } from 'react'
+import ScreenEgg from '../ScreenEgg'
 import styles from './index.module.scss'
 
 export default function Search({ onSearch }) {
@@ -18,18 +20,27 @@ export default function Search({ onSearch }) {
 			onSearch(resultPosts)
 		} catch (error) {
 			console.error('Search error:', error)
+		} finally {
+			setQuery('')
 		}
 	}
 
 	return (
-		<form onSubmit={handleSearch} className={styles.form}>
-			<input
-				type='text'
-				placeholder='Search'
-				value={query}
-				onChange={e => setQuery(e.target.value)}
-			/>
-			<button type='submit'>Search</button>
-		</form>
+		<ScreenEgg type='search' icon={SearchIcon}>
+			<form onSubmit={handleSearch} className={styles.form}>
+				<input
+					type='text'
+					placeholder='Search'
+					value={query}
+					autoFocus
+					name='search'
+					onChange={e => setQuery(e.target.value)}
+					className={styles.formInput}
+				/>
+				<button type='submit' className={styles.formButton}>
+					<SearchIcon viewBox='3 2 20 20' className={styles.formSearchIcon} />
+				</button>
+			</form>
+		</ScreenEgg>
 	)
 }

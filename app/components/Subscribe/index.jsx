@@ -1,4 +1,5 @@
 'use client'
+import { BellIcon } from '@sanity/icons'
 import cn from 'clsx'
 import { useState } from 'react'
 import ScreenEgg from '../ScreenEgg'
@@ -10,7 +11,7 @@ export default function Subscribe({ className }) {
 	const [buttonStatus, setButtonStatus] = useState('idle')
 
 	return (
-		<ScreenEgg type='right'>
+		<ScreenEgg type='subscribe' icon={BellIcon}>
 			<div className={cn(className, styles.subscribe)}>
 				{isSubscribed ? (
 					<div className={styles.subscribeContent}>
@@ -24,6 +25,7 @@ export default function Subscribe({ className }) {
 						<input
 							type='email'
 							placeholder='Enter your email'
+							name='subscribe'
 							autoFocus
 							disabled={buttonStatus !== 'idle'}
 							className={styles.subscribeInput}

@@ -3,9 +3,9 @@
 
       [TODO]
 
+- [ ] responsive design (mobile)
 - [ ] full-featured search using Algolia or Typesense
 - [ ] studio preview
 - [ ] studio auth (middleware?)
 - [ ] subscribe block:
   - [x] subscribe btn
-  - [ ] close on click outside
