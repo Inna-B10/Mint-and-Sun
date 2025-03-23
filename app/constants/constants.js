@@ -4,12 +4,6 @@ import {
 	LinkedinIcon,
 	TwitterIcon,
 } from '@sanity/icons'
-// import {
-// 	AiFillGithub,
-// 	AiFillLinkedin,
-// 	AiFillTwitterSquare,
-// 	AiFillYoutube,
-// } from 'react-icons/ai'
 
 // export const revalidate = 3600
 export const revalidate = 60

@@ -8,10 +8,14 @@
     &Back {
         position: absolute;
         left: 3rem;
-        font-size: 2rem;
+        font-size: 3rem;
         top: 4rem;
         color: black;
         text-decoration: none;
+
+        & svg path {
+            stroke-width: 1.5;
+        }
     }
 }
 
