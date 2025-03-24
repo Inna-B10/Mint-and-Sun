@@ -1,9 +1,10 @@
-import { getExtension } from '@sanity/asset-utils'
 import { ComposeIcon } from '@sanity/icons'
+
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { isUniqueAcrossAllDocuments } from '../lib/isUniqueAcrossAllDocuments'
 import AltInput from './components/AltInput'
 import GenerateMetaInput from './components/GenerateMetaInput'
+import IconFromCategoryInput from './components/IconFromCategoryInput'
 
 export const postType = defineType({
 	name: 'posts',
@@ -15,8 +16,8 @@ export const postType = defineType({
 			title: 'Content',
 		},
 		{
-			name: 'meta',
-			title: 'Meta',
+			name: 'details',
+			title: 'Details',
 		},
 	],
 	fields: [
@@ -25,14 +26,14 @@ export const postType = defineType({
 			type: 'string',
 			title: 'Title',
 			validation: rule => rule.required().error('Required field'),
-			group: 'content',
+			group: ['content', 'details'],
 		}),
 		defineField({
 			name: 'meta_title',
 			type: 'string',
 			title: 'Meta title',
 			validation: rule => rule.required().error('Required field'),
-			group: 'meta',
+			group: 'details',
 			components: {
 				input: GenerateMetaInput,
 			},
@@ -41,54 +42,6 @@ export const postType = defineType({
 					dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'development',
 				},
 			},
-		}),
-		defineField({
-			name: 'publishedDate',
-			type: 'datetime',
-			title: 'Published date',
-			validation: rule => rule.required().error('Required field'),
-			group: 'content',
-		}),
-		defineField({
-			name: 'icon',
-			type: 'image',
-			title: 'Icon',
-			fields: [
-				{
-					name: 'alt',
-					type: 'string',
-					title: 'Alt text',
-					components: {
-						input: AltInput,
-					},
-					hidden: ({ parent }) => {
-						return !parent?.asset
-					},
-					validation: rule =>
-						rule.custom((caption, context) => {
-							const parent = context.parent
-
-							if (parent?.asset && !caption) {
-								return 'Alt text is required when an image is uploaded'
-							}
-							return true //if no image uploaded
-						}),
-				},
-			],
-			validation: rule =>
-				rule.custom(value => {
-					if (!value || !value.asset || !value.asset._ref) {
-						return true
-					}
-
-					const filetype = getExtension(value.asset._ref)
-
-					if (!['jpg', 'jpeg', 'png', 'svg', 'webp'].includes(filetype)) {
-						return 'Image must be a JPG, PNG, SVG or WEBP'
-					}
-					return true
-				}),
-			group: 'content',
 		}),
 		defineField({
 			name: 'slug',
@@ -102,6 +55,33 @@ export const postType = defineType({
 				source: doc => doc.title,
 			},
 			validation: rule => rule.required().error('Required field'),
+			group: 'details',
+		}),
+		defineField({
+			name: 'publishedDate',
+			type: 'datetime',
+			title: 'Published date',
+			validation: rule => rule.required().error('Required field'),
+			group: ['content', 'details'],
+		}),
+		defineField({
+			name: 'category',
+			type: 'reference',
+			title: 'Category',
+			to: [{ type: 'category' }],
+			validation: rule => rule.required().error('Category is required'),
+			group: 'details',
+		}),
+		defineField({
+			name: 'icon',
+			type: 'image',
+			title: 'Icon',
+			description:
+				'Icon and keywords pulled automatically from selected category',
+			components: {
+				input: IconFromCategoryInput,
+			},
+			group: 'details',
 		}),
 		defineField({
 			name: 'description',

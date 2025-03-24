@@ -22,7 +22,7 @@ export default function PostsList({
 			)
 			const data = await res.json()
 
-			setPosts(prev => [...prev, ...data.posts])
+			setLoadedPosts(prev => [...prev, ...data.posts])
 		} catch (error) {
 			console.error('Error loading posts:', error)
 		} finally {

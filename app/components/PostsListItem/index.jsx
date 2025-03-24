@@ -17,24 +17,28 @@ export default function PostsListItem({
 	const formattedDate = format(new Date(date), 'dd MMM yyyy')
 
 	return (
-		<Link
-			href={`/post/${encodeURIComponent(slug.current)}`}
-			className={cn(className, styles.post, styles.postLink)}>
-			<div className={styles.postDate}>{formattedDate}</div>
-			<Title size='small' className={styles.postTitle}>
-				{title}
-			</Title>
-			<div>
-				<Image
-					src={urlFor(icon).url()}
-					alt={icon.alt || ''}
-					role='category icon'
-					width={100}
-					height={100}
-					className={styles.postImage}
-				/>
-				<p className={styles.postDescription}>{description}</p>
-			</div>
-		</Link>
+		<div>
+			<Link
+				href={`/post/${encodeURIComponent(slug.current)}`}
+				className={cn(className, styles.post, styles.postLink)}
+				title={icon.alt}>
+				<div className={styles.postDate}>{formattedDate}</div>
+				<Title size='small' className={styles.postTitle}>
+					{title}
+				</Title>
+				<div>
+					<Image
+						src={urlFor(icon.asset).url()}
+						alt={icon.alt || ''}
+						role='category icon'
+						width={100}
+						height={100}
+						className={styles.postImage}
+					/>
+					<p className={styles.postDescription}>{description}</p>
+				</div>
+			</Link>
+			<p>{icon.alt}</p>
+		</div>
 	)
 }
