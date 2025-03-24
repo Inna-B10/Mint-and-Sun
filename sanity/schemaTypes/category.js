@@ -15,17 +15,6 @@ export const categoryType = defineType({
 			title: 'Category Title',
 			validation: Rule => Rule.required(),
 		}),
-		// defineField({
-		// 	name: 'slug',
-		// 	type: 'slug',
-		// 	title: 'Slug',
-		// 	options: {
-		// 		source: 'title',
-		// 		slugify: input =>
-		// 			input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
-		// 	},
-		// 	validation: Rule => Rule.required(),
-		// }),
 		defineField({
 			name: 'icon',
 			type: 'image',
@@ -54,10 +43,6 @@ export const categoryType = defineType({
 			],
 			validation: rule =>
 				rule.custom(value => {
-					// if (!value || !value.asset || !value.asset._ref) {
-					// 	return true
-					// }
-
 					const filetype = getExtension(value.asset._ref)
 
 					if (!['jpg', 'jpeg', 'png', 'svg', 'webp'].includes(filetype)) {

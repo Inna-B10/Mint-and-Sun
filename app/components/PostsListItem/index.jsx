@@ -1,4 +1,6 @@
+import { fetchPostsByCategory } from '@/app/api/fetchPostsByCategory'
 import { urlFor } from '@/sanity/lib/image'
+import { TagsIcon } from '@sanity/icons'
 import cn from 'clsx'
 import { format } from 'date-fns'
 import Image from 'next/image'
@@ -13,11 +15,20 @@ export default function PostsListItem({
 	description,
 	slug,
 	date,
+	category,
+	onSearch,
+	isSearching,
 }) {
 	const formattedDate = format(new Date(date), 'dd MMM yyyy')
 
+	async function searchByCategory(categoryId) {
+		const posts = await fetchPostsByCategory(categoryId)
+
+		onSearch(posts)
+		isSearching = true
+	}
 	return (
-		<div>
+		<div className={styles.wrapperItem}>
 			<Link
 				href={`/post/${encodeURIComponent(slug.current)}`}
 				className={cn(className, styles.post, styles.postLink)}
@@ -38,7 +49,21 @@ export default function PostsListItem({
 					<p className={styles.postDescription}>{description}</p>
 				</div>
 			</Link>
-			<p>{icon.alt}</p>
+			<button
+				style={{ backgroundColor: 'unset' }}
+				onClick={() => searchByCategory(category._ref)}
+				title='Show all posts from this category'
+				className={styles.postKeywords}>
+				<TagsIcon
+					style={{
+						fontSize: 30,
+						color: '#14774D',
+						margin: '0px 5px -7px 1.5rem',
+						transform: 'rotateY(180deg)',
+					}}
+				/>
+				{icon.alt}
+			</button>
 		</div>
 	)
 }

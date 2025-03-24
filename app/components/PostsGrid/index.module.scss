@@ -1,6 +1,7 @@
 .postsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    justify-items: center;
     gap: 4rem 2rem;
     margin-bottom: 3rem;
 }

@@ -16,8 +16,8 @@ export const postType = defineType({
 			title: 'Content',
 		},
 		{
-			name: 'details',
-			title: 'Details',
+			name: 'properties',
+			title: 'Properties',
 		},
 	],
 	fields: [
@@ -26,14 +26,14 @@ export const postType = defineType({
 			type: 'string',
 			title: 'Title',
 			validation: rule => rule.required().error('Required field'),
-			group: ['content', 'details'],
+			group: ['content', 'properties'],
 		}),
 		defineField({
 			name: 'meta_title',
 			type: 'string',
 			title: 'Meta title',
 			validation: rule => rule.required().error('Required field'),
-			group: 'details',
+			group: 'properties',
 			components: {
 				input: GenerateMetaInput,
 			},
@@ -55,14 +55,14 @@ export const postType = defineType({
 				source: doc => doc.title,
 			},
 			validation: rule => rule.required().error('Required field'),
-			group: 'details',
+			group: 'properties',
 		}),
 		defineField({
 			name: 'publishedDate',
 			type: 'datetime',
 			title: 'Published date',
 			validation: rule => rule.required().error('Required field'),
-			group: ['content', 'details'],
+			group: ['content', 'properties'],
 		}),
 		defineField({
 			name: 'category',
@@ -70,7 +70,7 @@ export const postType = defineType({
 			title: 'Category',
 			to: [{ type: 'category' }],
 			validation: rule => rule.required().error('Category is required'),
-			group: 'details',
+			group: 'properties',
 		}),
 		defineField({
 			name: 'icon',
@@ -81,7 +81,7 @@ export const postType = defineType({
 			components: {
 				input: IconFromCategoryInput,
 			},
-			group: 'details',
+			group: 'properties',
 		}),
 		defineField({
 			name: 'description',
