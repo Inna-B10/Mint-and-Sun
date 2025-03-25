@@ -1,5 +1,6 @@
 import {
 	BookIcon,
+	BookmarkFilledIcon,
 	ComposeIcon,
 	DocumentsIcon,
 	EyeOpenIcon,
@@ -9,6 +10,7 @@ export const structure = S =>
 	S.list()
 		.title('Content')
 		.items([
+			/* ----------------- POSTS ------------------- */
 			S.listItem()
 				.title('Posts')
 				.icon(BookIcon)
@@ -16,7 +18,6 @@ export const structure = S =>
 					S.list()
 						.title('Posts by status')
 						.items([
-							/* -------------------------------- All Posts  */
 							S.listItem()
 								.title('All posts')
 								.icon(DocumentsIcon)
@@ -27,7 +28,6 @@ export const structure = S =>
 											S.document().documentId(documentId).schemaType('posts')
 										)
 								),
-							/* ----------------------------- Published Posts  */
 							S.listItem()
 								.title('Published posts')
 								.icon(EyeOpenIcon)
@@ -39,7 +39,6 @@ export const structure = S =>
 											S.document().documentId(documentId).schemaType('posts')
 										)
 								),
-							/* ------------------------------- Draft Posts  */
 							S.listItem()
 								.title('Draft posts')
 								.icon(ComposeIcon)
@@ -53,4 +52,11 @@ export const structure = S =>
 								),
 						])
 				),
+			S.divider(),
+
+			/* ----------------- CATEGORIES ------------------- */
+			S.listItem()
+				.title('Categories')
+				.icon(BookmarkFilledIcon)
+				.child(S.documentTypeList('category').title('Categories')),
 		])

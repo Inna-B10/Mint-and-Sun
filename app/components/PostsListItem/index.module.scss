@@ -1,3 +1,10 @@
+.wrapperItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .post {
     padding: 1.5rem;
 
@@ -8,10 +15,10 @@
     &Date {
         text-align: right;
         margin-bottom: 0.5rem;
-        color: #23b997;
+        color: #14774D;
         font-weight: bold;
         font-family: var(--font-title);
-        text-shadow: 1px 1px 1px rgb(0 0 0 / 30%);
+        text-shadow: -1px 1px 0px rgb(0 0 0 / 50%);
     }
 
     &Description {
@@ -24,9 +31,23 @@
         float: left;
     }
 
+    &Keywords {
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #14774D;
+        text-shadow: 0px 0px 1px rgb(0 0 0 / 50%);
+
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+    }
+
     &Link {
         text-decoration: none;
         color: black;
+        display: block;
 
         &:hover {
             box-shadow: 0px 0px 10px -4px rgb(0 0 0 / 30%);

@@ -28,6 +28,7 @@ export default function HomeWrapper({ initialPosts, total }) {
 						total={total}
 						searchResults={searchResults !== null ? searchResults : undefined}
 						isSearching={searchResults !== null}
+						onSearch={setSearchResults}
 					/>
 				</PostsGrid>
 			</Section>

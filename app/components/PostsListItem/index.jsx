@@ -1,4 +1,6 @@
+import { fetchPostsByCategory } from '@/app/api/fetchPostsByCategory'
 import { urlFor } from '@/sanity/lib/image'
+import { TagsIcon } from '@sanity/icons'
 import cn from 'clsx'
 import { format } from 'date-fns'
 import Image from 'next/image'
@@ -13,28 +15,55 @@ export default function PostsListItem({
 	description,
 	slug,
 	date,
+	category,
+	onSearch,
+	isSearching,
 }) {
 	const formattedDate = format(new Date(date), 'dd MMM yyyy')
 
+	async function searchByCategory(categoryId) {
+		const posts = await fetchPostsByCategory(categoryId)
+
+		onSearch(posts)
+		isSearching = true
+	}
 	return (
-		<Link
-			href={`/post/${encodeURIComponent(slug.current)}`}
-			className={cn(className, styles.post, styles.postLink)}>
-			<div className={styles.postDate}>{formattedDate}</div>
-			<Title size='small' className={styles.postTitle}>
-				{title}
-			</Title>
-			<div>
-				<Image
-					src={urlFor(icon).url()}
-					alt={icon.alt || ''}
-					role='category icon'
-					width={100}
-					height={100}
-					className={styles.postImage}
+		<div className={styles.wrapperItem}>
+			<Link
+				href={`/post/${encodeURIComponent(slug.current)}`}
+				className={cn(className, styles.post, styles.postLink)}
+				title={icon.alt}>
+				<div className={styles.postDate}>{formattedDate}</div>
+				<Title size='small' className={styles.postTitle}>
+					{title}
+				</Title>
+				<div>
+					<Image
+						src={urlFor(icon.asset).url()}
+						alt={icon.alt || ''}
+						role='category icon'
+						width={100}
+						height={100}
+						className={styles.postImage}
+					/>
+					<p className={styles.postDescription}>{description}</p>
+				</div>
+			</Link>
+			<button
+				style={{ backgroundColor: 'unset' }}
+				onClick={() => searchByCategory(category._ref)}
+				title='Show all posts from this category'
+				className={styles.postKeywords}>
+				<TagsIcon
+					style={{
+						fontSize: 30,
+						color: '#14774D',
+						margin: '0px 5px -7px 1.5rem',
+						transform: 'rotateY(180deg)',
+					}}
 				/>
-				<p className={styles.postDescription}>{description}</p>
-			</div>
-		</Link>
+				{icon.alt}
+			</button>
+		</div>
 	)
 }

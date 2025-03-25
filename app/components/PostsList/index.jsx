@@ -1,18 +1,32 @@
 'use client'
 import { LOAD_MORE_STEP } from '@/app/constants/constants'
-import { useState } from 'react'
+import { ArrowLeftIcon } from '@sanity/icons'
+import { useEffect, useState } from 'react'
 import { Button, PostsListItem } from '..'
+import styles from './index.module.scss'
 
 export default function PostsList({
 	initialPosts,
 	total,
 	searchResults,
 	isSearching = false,
+	onSearch,
 }) {
 	const [loadedPosts, setLoadedPosts] = useState(initialPosts)
 	const [loading, setLoading] = useState(false)
+	const [isSearchingState, setIsSearchingState] = useState(isSearching)
+	const currentPosts = isSearchingState ? searchResults : loadedPosts
 
-	const currentPosts = isSearching ? searchResults : loadedPosts
+	useEffect(() => {
+		if (searchResults?.length >= 0) {
+			setIsSearchingState(true)
+		}
+	}, [searchResults])
+
+	const handleBackToHome = () => {
+		setIsSearchingState(false)
+		setLoadedPosts(initialPosts)
+	}
 
 	const handleLoadMore = async () => {
 		setLoading(true)
@@ -22,7 +36,7 @@ export default function PostsList({
 			)
 			const data = await res.json()
 
-			setPosts(prev => [...prev, ...data.posts])
+			setLoadedPosts(prev => [...prev, ...data.posts])
 		} catch (error) {
 			console.error('Error loading posts:', error)
 		} finally {
@@ -30,8 +44,27 @@ export default function PostsList({
 		}
 	}
 
+	if (isSearchingState && searchResults.length === 0) {
+		return (
+			<>
+				<button onClick={handleBackToHome} className={styles.backHome}>
+					<ArrowLeftIcon viewBox='5 0 20 20' />
+					Back Home
+				</button>
+				<p className={styles.noResult}>No results were found.</p>
+			</>
+		)
+	}
+
 	return (
 		<>
+			{isSearchingState && searchResults.length > 0 && (
+				<button onClick={handleBackToHome} className={styles.backHome}>
+					<ArrowLeftIcon viewBox='5 0 20 20' />
+					Back Home
+				</button>
+			)}
+
 			{currentPosts.map(post => (
 				<PostsListItem
 					key={post.slug.current}
@@ -40,9 +73,12 @@ export default function PostsList({
 					slug={post.slug}
 					title={post.title}
 					date={post.publishedDate}
+					category={post.category}
+					onSearch={onSearch}
+					isSearching
 				/>
 			))}
-			{!isSearching && loadedPosts.length < total && (
+			{!isSearchingState && loadedPosts.length < total && (
 				<div style={{ display: 'flex', justifyContent: 'center' }}>
 					<Button
 						onClick={() => {
@@ -52,10 +88,6 @@ export default function PostsList({
 						{loading ? 'Loading...' : 'Load More'}
 					</Button>
 				</div>
-			)}
-
-			{isSearching && searchResults.length === 0 && (
-				<p style={{ textAlign: 'center' }}>No results were found.</p>
 			)}
 		</>
 	)
