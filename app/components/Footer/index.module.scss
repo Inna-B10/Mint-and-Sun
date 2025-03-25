@@ -1,0 +1,35 @@
+.footer {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFE592;
+  font-size: 2rem;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.5);
+
+  a {
+    position: relative;
+    text-decoration: none;
+
+    & svg {
+      width: 42px;
+      height: 42px;
+      color: #21AD85;
+      transition: all 0.3s linear;
+
+      &:hover {
+        transform: scale(1.1);
+        color: #177a5e;
+        transition: all 0.3s linear;
+      }
+    }
+  }
+
+  a::after {
+    top: -70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

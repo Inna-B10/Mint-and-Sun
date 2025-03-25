@@ -8,9 +8,11 @@ export default function AdminLinks() {
 
 	return (
 		<ScreenEgg type='studio'>
-			<Link href={`${siteUrl}/studio`} target='_blank' title='Studio'>
-				<GroqIcon className={styles.adminLinks} />
-			</Link>
+			<span className={styles.adminLinks}>
+				<Link href={`${siteUrl}/studio`} target='_blank' data-title='Studio'>
+					<GroqIcon />
+				</Link>
+			</span>
 		</ScreenEgg>
 	)
 }

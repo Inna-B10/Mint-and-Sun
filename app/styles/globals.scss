@@ -49,6 +49,30 @@ h3 {
     letter-spacing: 1px;
 }
 
+a {
+    position: relative;
+    text-decoration: none;
+}
+
+//custom tooltip
+a::after {
+    content: attr(data-title);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+a[data-title]:hover::after {
+    opacity: 1;
+}
+
 @media only screen and (max-width: 1150px) {
 
     html,

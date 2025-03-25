@@ -13,4 +13,15 @@
             }
         }
     }
+
+    a {
+        position: relative;
+        text-decoration: none;
+    }
+
+    a::after {
+        top: 0%;
+        left: 100%;
+        transform: translateY(-50%);
+    }
 }

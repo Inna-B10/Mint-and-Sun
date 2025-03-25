@@ -15,23 +15,27 @@ export default function HomeWrapper({ initialPosts, total }) {
 
 	return (
 		<>
-			<Section>
-				<Hero title='Mint & Sun' onSearch={setSearchResults} />
-				<AdminLinks />
-				<SocialNetworks />
-				<Subscribe />
-			</Section>
-			<Section>
-				<PostsGrid>
-					<PostsList
-						initialPosts={initialPosts}
-						total={total}
-						searchResults={searchResults !== null ? searchResults : undefined}
-						isSearching={searchResults !== null}
-						onSearch={setSearchResults}
-					/>
-				</PostsGrid>
-			</Section>
+			<header>
+				<Section>
+					<Hero title='Mint & Sun' onSearch={setSearchResults} />
+					<AdminLinks />
+					<SocialNetworks />
+					<Subscribe />
+				</Section>
+			</header>
+			<main>
+				<Section>
+					<PostsGrid>
+						<PostsList
+							initialPosts={initialPosts}
+							total={total}
+							searchResults={searchResults !== null ? searchResults : undefined}
+							isSearching={searchResults !== null}
+							onSearch={setSearchResults}
+						/>
+					</PostsGrid>
+				</Section>
+			</main>
 		</>
 	)
 }

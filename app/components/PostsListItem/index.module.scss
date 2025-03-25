@@ -3,6 +3,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+
+    a::after {
+        top: -70%;
+        left: 60%;
+        transform: translateX(-50%);
+    }
 }
 
 .post {

@@ -1,9 +1,15 @@
 .adminLinks {
-  position: absolute;
-  font-size: 48px;
-  background-color: #FFE592;
-  color: #21AD85;
-  transform: translate(0, 0);
-  transition: opacity 0.3s ease;
-  box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.5);
+  & svg {
+    font-size: 48px;
+    background-color: #FFE592;
+    color: #21AD85;
+    transition: opacity 0.3s ease;
+    box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.5);
+  }
+
+  a::after {
+    top: 0%;
+    left: -130%;
+    transform: translateY(-70%);
+  }
 }

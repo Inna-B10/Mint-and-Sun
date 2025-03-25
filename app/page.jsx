@@ -6,9 +6,5 @@ import { LOAD_MORE_STEP } from './constants/constants'
 export default async function Home() {
 	const { posts: initialPosts, total } = await fetchAllPosts(0, LOAD_MORE_STEP)
 
-	return (
-		<main>
-			<HomeWrapper initialPosts={initialPosts} total={total} />
-		</main>
-	)
+	return <HomeWrapper initialPosts={initialPosts} total={total} />
 }

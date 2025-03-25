@@ -49,10 +49,14 @@ export default function PostsListItem({
 					<p className={styles.postDescription}>{description}</p>
 				</div>
 			</Link>
-			<button
+			<Link
+				href='/'
 				style={{ backgroundColor: 'unset' }}
-				onClick={() => searchByCategory(category._ref)}
-				title='Show all posts from this category'
+				onClick={e => {
+					e.preventDefault()
+					searchByCategory(category._ref)
+				}}
+				data-title='Show all posts from this category'
 				className={styles.postKeywords}>
 				<TagsIcon
 					style={{
@@ -63,7 +67,7 @@ export default function PostsListItem({
 					}}
 				/>
 				{icon.alt}
-			</button>
+			</Link>
 		</div>
 	)
 }
