@@ -60,7 +60,7 @@ export default function PostsList({
 		<>
 			{isSearchingState && searchResults.length > 0 && (
 				<button onClick={handleBackToHome} className={styles.backHome}>
-					<ArrowLeftIcon viewBox='5 0 20 20' />
+					<ArrowLeftIcon viewBox='0 0 18 18' />
 					Back Home
 				</button>
 			)}

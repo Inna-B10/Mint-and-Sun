@@ -1,3 +1,4 @@
+import { GoToTop } from './components'
 import './styles/0_reset.scss'
 import { marcellus, raleway } from './styles/fonts'
 import './styles/globals.scss'
@@ -16,7 +17,10 @@ export default function RootLayout({ children }) {
     ${raleway.variable}
     ${marcellus.variable}
     `}>
-			<body>{children}</body>
+			<body>
+				{children}
+				<GoToTop />
+			</body>
 		</html>
 	)
 }

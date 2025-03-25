@@ -1,0 +1,29 @@
+.goToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #23b997;
+  color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+
+  & svg path {
+    stroke-width: 2;
+  }
+
+  &:hover {
+    color: #000;
+    background-color: #FFE592;
+  }
+
+  &.visible {
+    opacity: 1;
+    display: block;
+    transform: translateY(0);
+  }
+}

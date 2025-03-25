@@ -8,10 +8,20 @@
   grid-column: span 2;
   padding: 0.5rem 1rem;
   color: black;
+  font-weight: bold;
   text-decoration: none;
   background: #FFE592;
 
+  & svg {
+    margin-right: 5px;
+
+    path {
+      stroke-width: 2 !important;
+    }
+  }
+
   &:hover {
+    color: #fff;
     background: #23b997;
   }
 
