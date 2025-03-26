@@ -34,6 +34,7 @@ export const structure = S =>
 								.child(
 									S.documentTypeList('posts')
 										.title('Published posts')
+										.apiVersion('v2025-03-08')
 										.filter('_type == "posts" && defined(publishedDate)')
 										.child(documentId =>
 											S.document().documentId(documentId).schemaType('posts')
@@ -45,6 +46,7 @@ export const structure = S =>
 								.child(
 									S.documentTypeList('posts')
 										.title('Draft posts')
+										.apiVersion('v2025-03-08')
 										.filter('_type == "posts" && !defined(publishedDate)')
 										.child(documentId =>
 											S.document().documentId(documentId).schemaType('posts')
