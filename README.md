@@ -43,6 +43,7 @@ sass
 
 #### [TODO]
 
+- [ ] preview thumbnails/images
 - [ ] responsive design (design is optimized for large screens, 1024px and above)
 - [ ] full-featured search using Algolia or Typesense
 - [ ] studio preview

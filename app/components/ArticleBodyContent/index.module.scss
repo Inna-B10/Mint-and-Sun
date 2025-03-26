@@ -2,16 +2,28 @@
     font-size: 1rem;
     line-height: 1.4;
 
+    h4 {
+        margin: 0.8rem 0 0.5rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    h6 {
+        font-weight: bold;
+        padding: 1.5em 0;
+    }
+
     p,
     figure,
     blockquote,
     ul,
     ol {
-        margin-bottom: 1.5em;
+        margin: 1.5em 0;
     }
 
     img {
         max-width: 100%;
+        max-height: 500px;
     }
 
     figure {
@@ -44,8 +56,10 @@
     }
 
     blockquote {
+        width: fit-content;
         margin-left: 1em;
-        border-left: #FED963 solid 4px;
-        padding-left: 1em;
+        border-left: #21AD85 solid 6px;
+        background-color: rgb(33 173 133 / 20%);
+        padding: 0.5em 1em 0.5em 1em;
     }
 }

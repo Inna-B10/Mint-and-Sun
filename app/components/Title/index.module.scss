@@ -17,7 +17,7 @@
     }
 
     &Small {
-        font-size: 2rem;
+        font-size: 1.5rem;
         line-height: 1.2;
 
         &::after {
@@ -26,9 +26,9 @@
     }
 
     &Medium {
-        font-size: 3.5rem;
+        font-size: 3rem;
         line-height: 1.2;
-        margin-bottom: 1em;
+        margin-bottom: 2em !important;
 
         &::after {
             width: calc(100% + 2rem);
