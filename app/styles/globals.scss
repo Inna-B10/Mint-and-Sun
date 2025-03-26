@@ -73,6 +73,61 @@ a[data-title]:hover::after {
     opacity: 1;
 }
 
+.bodyWrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+//yellow boble
+//https: //9elements.github.io/fancy-border-radius/
+.bodyWrapper:before {
+    content: "";
+    position: absolute;
+    background: rgba(255, 222, 125, 1);
+    animation: morph 15s linear infinite alternate, spin 70s linear infinite, gradient 60s linear infinite alternate-reverse;
+    z-index: -1;
+    will-change: border-radius, transform;
+    pointer-events: none;
+    width: 100vmin;
+    height: 100vmin;
+    left: 5vmin;
+    right: auto;
+    top: -50vmin;
+    bottom: 0;
+    background: rgba(255, 255, 255, .07);
+    z-index: -1;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 40% 60% 60% 40% / 70% 30%;
+    }
+
+    100% {
+        border-radius: 40% 60%;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-image: linear-gradient(rgba(255, 222, 125, 1), rgba(255, 222, 125, 1), rgba(255, 199, 41, 0.7));
+    }
+
+    50% {
+        background-image: linear-gradient(rgba(255, 222, 125, 1), rgba(255, 199, 41, 0.7));
+    }
+
+    100% {
+        background-image: linear-gradient(rgba(255, 222, 125, 1), rgba(255, 222, 125, 1), rgba(255, 199, 41, 0.7));
+    }
+}
+
 @media only screen and (max-width: 1150px) {
 
     html,

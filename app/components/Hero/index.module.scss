@@ -1,20 +1,131 @@
 .cover {
-    // background: url('/hero.png') no-repeat center right;
-    // background-size: contain;
-    padding: 10% 0;
+    margin: 2rem 0 8rem;
+    display: flex;
+
+    &TitleWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+        color: #0E524A;
+    }
 
     &Title {
-        font-size: 10vw;
+        font-size: 5vw;
         line-height: 1.3;
         font-weight: bold;
         text-decoration: none;
-        color: black;
+        // color: #0A3C36;
+        margin-bottom: 2rem;
+
+        &H2 {
+            font-size: 1.8vw;
+            line-height: 1.2;
+            text-align: right;
+        }
     }
+}
+
+// Petals
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 1rem;
+    width: 50%;
+    height: auto;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.petal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-family: var(--font-title);
+    font-style: italic;
+    letter-spacing: 1px;
+    color: #0A3C36;
+    width: 210px;
+    height: 150px;
+    position: relative;
+}
+
+.petal::before {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 150px;
+    z-index: -1;
+}
+
+// Positions of slogans
+.slogan1 {
+    left: 5rem;
+    bottom: -1rem;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.slogan4 {
+    right: 5rem;
+    top: 1rem;
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.slogan2 {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    top: -1rem;
+    left: 5rem;
+    grid-row: 2;
+}
+
+.slogan3 {
+    right: 3rem;
+    top: 3rem;
+    grid-column: 3;
+    grid-row: 3;
+}
+
+// Different rotations of petals
+// borders - https: //9elements.github.io/fancy-border-radius/
+.slogan1::before {
+    transform: rotate(0deg);
+    border-radius: 83% 31% 100% 15% / 91% 4% 100% 0%;
+    background-image: linear-gradient(140deg, #5CD6B3, #21AD85);
+}
+
+.slogan2::before {
+    transform: rotate(190deg);
+    border-radius: 26% 118% 11% 100%/0% 151% 90% 136%;
+    background-image: linear-gradient(275deg,
+            #5CD6B3, #21AD85);
+}
+
+.slogan3::before {
+    width: 8rem;
+    height: 10rem;
+    transform: rotate(70deg);
+    border-radius: 67% 33% 29% 71% / 43% 52% 48% 57%;
+    background-image: linear-gradient(40deg,
+            #5CD6B3, #21AD85);
+}
+
+.slogan4::before {
+    transform: rotate(0deg);
+    border-radius: 91% 3% 108% 21%/98% 32% 94% 2%;
+    background-image: linear-gradient(110deg,
+            #5CD6B3, #21AD85);
 }
 
 @media screen and (min-width: 1200px) {
     .coverTitle {
-        font-size: 144px;
+        font-size: 7vw;
     }
 }
 
