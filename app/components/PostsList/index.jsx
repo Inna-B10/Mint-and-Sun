@@ -51,7 +51,7 @@ export default function PostsList({
 					<ArrowLeftIcon viewBox='5 0 20 20' />
 					Back Home
 				</button>
-				<p className={styles.noResult}>No results were found.</p>
+				<p className={styles.centerDoubleSpan}>No results were found.</p>
 			</>
 		)
 	}
@@ -79,7 +79,7 @@ export default function PostsList({
 				/>
 			))}
 			{!isSearchingState && loadedPosts.length < total && (
-				<div style={{ display: 'flex', justifyContent: 'center' }}>
+				<div className={styles.centerDoubleSpan}>
 					<Button
 						onClick={() => {
 							handleLoadMore()

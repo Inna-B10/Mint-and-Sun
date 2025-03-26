@@ -29,6 +29,8 @@ Simple design with minimal SEO optimization.
 - Alt text of the icon is used as keyword tags
 - Supports inline images (position options: left / right)
 
+### [design sketch](https://excalidraw.com/#json=RSmZXVfYtyhUMBPwriHsZ,AFBSdJr8jcngmlqm3sOzSg)
+
 #### used in addition:
 
 ```
