@@ -73,14 +73,14 @@ a[data-title]:hover::after {
     opacity: 1;
 }
 
-.bodyWrapper {
+main {
     overflow: hidden;
     position: relative;
 }
 
 //yellow boble
 //https: //9elements.github.io/fancy-border-radius/
-.bodyWrapper:before {
+main:before {
     content: "";
     position: absolute;
     background: rgba(255, 222, 125, 1);

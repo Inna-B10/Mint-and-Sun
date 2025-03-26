@@ -22,13 +22,13 @@
     }
 
     &Studio {
-        top: calc(10% + 48px + 2rem);
+        top: calc(10% + 48px + 1rem);
         right: 0px;
     }
 
     &Subscribe {
         transform: translate(-100%, 0);
-        bottom: calc(10% + 195px + 2rem);
+        bottom: calc(10% + 195px + 1rem);
         padding: 1rem !important;
         left: 0;
     }

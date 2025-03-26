@@ -18,10 +18,8 @@ export default function RootLayout({ children }) {
     ${marcellus.variable}
     `}>
 			<body>
-				<div className='bodyWrapper'>
-					<GoToTop />
-					{children}
-				</div>
+				<GoToTop />
+				{children}
 			</body>
 		</html>
 	)
