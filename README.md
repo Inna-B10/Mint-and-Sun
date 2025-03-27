@@ -4,7 +4,7 @@
 
 ## 🚀 Features
 
-Simple design with minimal SEO optimization.
+Simple design with minimal SEO optimization, deployed on Vercel with configured Sanity Webhook that automatically notify Vercel to rebuild the site after updating data in Sanity.
 
 ### 🖥️ Frontend (Next.js 15)
 
@@ -43,6 +43,7 @@ sass
 
 #### [TODO]
 
+- [ ] more style options for Rich text (body block)
 - [ ] preview thumbnails/images
 - [ ] responsive design (design is optimized for large screens, 1024px and above)
 - [ ] full-featured search using Algolia or Typesense
